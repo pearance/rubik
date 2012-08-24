@@ -4,6 +4,8 @@ base theme = tao
 core = 7.x
 engine = phptemplate
 
+screenshot = 'gfx/screenshot.png'
+
 regions[content] = Content
 regions[help] = Help
 regions[page_top] = Page top
