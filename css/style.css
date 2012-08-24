@@ -75,7 +75,7 @@ table th {
  * Branding ===========================================================
  */
 #branding {
-  background:url(images/bleeds.png) 0px -30px repeat-x;
+  background:url(../gfx/bleeds.png) 0px -30px repeat-x;
   color:#ccc;
   font-size:11px;
   height:30px;
@@ -85,7 +85,7 @@ table th {
 #branding ul.links { float:right; }
 
 #branding ul.links a {
-  background:url(images/bleeds.png) 0% -30px no-repeat;
+  background:url(../gfx/bleeds.png) 0% -30px no-repeat;
   color:#fff;
   float:left;
   padding:5px 10px;
@@ -122,7 +122,7 @@ table th {
     float:left;
     margin-right:-10px;
     padding:5px 20px;
-    background:url(images/bleeds.png) 100% -60px no-repeat;
+    background:url(../gfx/bleeds.png) 100% -60px no-repeat;
     }
 
     #branding .breadcrumb-depth-0 a,
@@ -133,7 +133,7 @@ table th {
 /**
  * Page title =========================================================
  */
-#page-title { background:#fff url(images/bleeds.png) 0px -350px repeat-x; }
+#page-title { background:#fff url(../gfx/bleeds.png) 0px -350px repeat-x; }
 #page-title .limiter { position:relative; }
 
   #page-title .page-title {
@@ -200,7 +200,7 @@ div.pager {
 .primary-tabs li {
   height:30px;
   position:relative;
-  background:#eee url(images/bleeds.png) 50% 0px no-repeat;
+  background:#eee url(../gfx/bleeds.png) 50% 0px no-repeat;
   }
 
 .pager a,
@@ -245,7 +245,7 @@ div.pager {
 .pager li.pager-current span,
 .primary-tabs li.active a {
   color:#fff;
-  text-shadow:#38a 0px 1px 0px;  
+  text-shadow:#38a 0px 1px 0px;
   }
 
 /* Secondary tabs, nested */
@@ -255,7 +255,7 @@ div.pager {
   position:relative;
   margin:5px 5px 5px 0px;
   font-size:11px;
-  background:#59a url(images/buttons.png) -800px 50% no-repeat;
+  background:#59a url(../gfx/buttons.png) -800px 50% no-repeat;
   border-radius:3px;
   -moz-border-radius:3px;
   -webkit-border-radius:3px;
@@ -287,7 +287,7 @@ ul.secondary-tabs li a {
 
   .secondary-tabs li:hover,
   .secondary-tabs li.active { background:transparent; }
-  .secondary-tabs a:hover { background:#389 url(images/buttons.png) -800px 50% no-repeat; }
+  .secondary-tabs a:hover { background:#389 url(../gfx/buttons.png) -800px 50% no-repeat; }
 
   .secondary-tabs li:last-child a:hover {
     border-radius:0px 0px 3px 3px;
@@ -311,7 +311,7 @@ div.node {
   border-width:1px;
   border-color:#ddd;
 
-  background:#fff url(images/vrule.png) 65% 0% repeat-y;
+  background:#fff url(../gfx/vrule.png) 65% 0% repeat-y;
   margin:0px 0px 10px;
   }
 

@@ -33,7 +33,7 @@ html.js body {
   -webkit-border-radius:5px;
   border-radius:5px;
 
-  background:#444 url(images/buttons.png) -4000px 50% no-repeat;
+  background:#444 url(../gfx/buttons.png) -4000px 50% no-repeat;
   display: block;
   position: absolute;
   height: 20px;
@@ -42,7 +42,7 @@ html.js body {
   padding: 0px;
   }
 
-  #overlay-close:active { background:#333 url(images/buttons.png) -4400px 50% no-repeat; }
+  #overlay-close:active { background:#333 url(../gfx/buttons.png) -4400px 50% no-repeat; }
 
 #overlay-content {
   background:#fff;
