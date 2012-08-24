@@ -820,3 +820,6 @@ body.tao #admin-toolbar a.menu-hover span.menu-description span.icon {
 .field-group-tabs {
   margin:20px 0;
 }
+
+
+.hide {display: none !important;}
