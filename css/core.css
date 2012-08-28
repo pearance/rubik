@@ -824,3 +824,5 @@ body.tao #admin-toolbar a.menu-hover span.menu-description span.icon {
 
 
 .hide {display: none !important;}
+.form-item-status {display: none;}
+
