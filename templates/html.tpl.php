@@ -49,6 +49,29 @@
   <title><?php print $head_title; ?></title>
   <?php print $styles; ?>
   <?php print $scripts; ?>
+  <script>
+    Drupal.behaviors.rubik = {
+      attach: function(context, settings) {
+        (function ($) {
+          /* =============================================================================
+            Add 'x' close button and handler to status messages.
+            ========================================================================== */
+          $.fn.closeButtonMessages = function() {
+            $('.messages').each(function() {
+              if ($(this).find('a.close').length < 1) {
+                $(this).prepend('<a class="close" href="#" title="' + Drupal.t('Close') + '">x</a>');
+              }
+            });
+            $('.messages a.close').click(function(e) {
+              e.preventDefault();
+              $(this).parent().fadeOut('slow');
+            });
+          };
+          $().closeButtonMessages();
+        })(jQuery);
+      }
+    }
+  </script>
 </head>
 <body class="<?php print $classes; ?>" <?php print $attributes;?>>
   <div id="skip-link">
@@ -57,7 +80,7 @@
     <?php else: ?>
       <a href="#main-content" class="element-invisible element-focusable"><?php print t('Skip to main content'); ?></a>
     <?php endif;?>
-      
+
 
   </div>
   <?php print $page_top; ?>

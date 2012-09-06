@@ -818,11 +818,22 @@ body.tao #admin-toolbar a.menu-hover span.menu-description span.icon {
   }
 
 
+
+
+
+
+/* Pearance Addendum */
 .field-group-tabs {
   margin:20px 0;
 }
 
-
 .hide {display: none !important;}
 .form-item-status {display: none;}
 
+/* Position message close button */
+div.messages a.close {
+  float: right;
+  margin-right: 10px;
+  font-size: 150%;
+  color: #999;
+}
