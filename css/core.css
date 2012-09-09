@@ -837,3 +837,5 @@ div.messages a.close {
   font-size: 150%;
   color: #999;
 }
+
+.node-form .fieldset-title span.summary {display: none;}

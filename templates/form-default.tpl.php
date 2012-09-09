@@ -8,6 +8,8 @@
     <?php print drupal_render($sidebar); ?>
   </div></div>
   <?php if (!empty($footer)): ?>
-    <div class='column-footer'><div class='column-wrapper clearfix'><?php print drupal_render($footer); ?></div></div>
+    <div class='column-footer'><div class='column-wrapper clearfix'>
+      <?php print drupal_render($footer); ?>
+    </div></div>
   <?php endif; ?>
 </div>

@@ -2,9 +2,18 @@
 /*
  * Implements hook_preprocess_html().
  */
-function rubik_preprocess_html() {
+function rubik_preprocess_html(&$vars) {
   if (module_exists('views')) {
     drupal_add_css(drupal_get_path('module', 'views') . '/css/views-admin.seven.css', 'theme');
+  }
+
+  // Add user role as a class to the body element.
+  $body_classes = array($vars['classes_array']);
+  if ($vars['user']) {
+    foreach($vars['user']->roles as $key => $role){
+      $role_class = 'role-' . str_replace(' ', '-', $role);
+      $vars['classes_array'][] = $role_class;
+    }
   }
 }
 
@@ -562,3 +571,30 @@ function _rubik_local_tasks(&$vars) {
   }
 }
 
+
+// Disable vertical tabs
+function replace_array_values_vertical_tabs_to_fieldsets(&$item, $key) {
+  // Search for 'vertical_tabs' values with key '#type' and replace to 'fieldset'
+  if ($item == 'vertical_tabs' && $key == '#type') {
+    $item = 'fieldset';
+  }
+}
+
+// Implements hook_form_alter
+function rubik_form_alter(&$form, &$form_state, $form_id) {
+  // Go through hole array using 'replace_array_values_vertical_tabs_to_fieldsets' function
+  if($form_id == 'faq_node_form' ||
+     $form_id == 'block_node_form' ||
+     $form_id == 'blog_node_form' ||
+     $form_id == 'featured_node_form' ||
+     $form_id == 'page_node_form' ||
+     $form_id == 'specialty_node_form' ||
+     $form_id == 'testimonial_node_form' ||
+     $form_id == 'webform_node_form'
+    ) {
+    array_walk_recursive($form, 'replace_array_values_vertical_tabs_to_fieldsets');
+    $form['rabbit_hole']['#collapsed'] = TRUE;
+    $form['machine_name_fs']['#collapsible'] = TRUE;
+    $form['machine_name_fs']['#collapsed'] = TRUE;
+  }
+}
