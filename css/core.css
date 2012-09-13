@@ -839,3 +839,56 @@ div.messages a.close {
 }
 
 .node-form .fieldset-title span.summary {display: none;}
+
+.autocomplete-container input.fluid {width: 85%;}
+.autocomplete-container span.autocomplete-deluxe-button {top: 0.3em;}
+
+
+.column-side {xbackground: #eee;}
+
+.fieldset {xborder: none;}
+
+input.form-autocomplete, input.form-text, textarea.form-textarea, select.form-select {
+  xbackground: blue;
+}
+
+.fieldset .fieldset .fieldset-content {
+  background: none;
+}
+
+.fieldset-content {
+  background: #f7f7f7;
+}
+
+.item-list h3, .block .block-title, .fieldset-title, .collapsible .fieldset-legend a {
+  background: #178BFF;
+  color: #fff;
+  font-weight: bold;
+  font-size: 1em;
+}
+
+.item-list h3,
+.block .block-title,
+.collapsible
+.fieldset-legend a:hover {
+  background: #0066CC;
+  color: #fff;
+}
+
+.xfieldset-title {background: none;}
+#edit-field-files legend span {display: none;}
+
+#edit-field-files-und .fieldset-content {
+  padding: 10px;
+  background: none;
+}
+
+.block, .item-list, .help-items ul, .form-item, .confirmation ul, .admin-list, .node-type-list, .admin-panel {
+  border: none;
+}
+
+
+
+
+
+
