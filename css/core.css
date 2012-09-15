@@ -828,7 +828,7 @@ body.tao #admin-toolbar a.menu-hover span.menu-description span.icon {
 }
 
 .hide {display: none !important;}
-.form-item-status {display: none;}
+/* .form-item-status {display: none;} */
 
 /* Position message close button */
 div.messages a.close {
