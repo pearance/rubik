@@ -593,8 +593,8 @@ function rubik_form_alter(&$form, &$form_state, $form_id) {
      $form_id == 'webform_node_form'
     ) {
     array_walk_recursive($form, 'replace_array_values_vertical_tabs_to_fieldsets');
-    // $form['options']['#collapsed'] = FALSE;
-    // $form['options']['#weight'] = '-100';
+    $form['options']['#collapsed'] = FALSE;
+    $form['options']['#weight'] = '-100';
     $form['rabbit_hole']['#collapsed'] = TRUE;
     $form['machine_name_fs']['#collapsible'] = TRUE;
     $form['machine_name_fs']['#collapsed'] = TRUE;
@@ -604,4 +604,20 @@ function rubik_form_alter(&$form, &$form_state, $form_id) {
     $form['path']['#collapsed'] = TRUE;
     $form['revision_information']['#weight'] = '-100';
   }
+}
+
+
+
+/**
+ * Remove the filters' tips
+ */
+function rubik_filter_tips($tips, $long = FALSE, $extra = '') {
+  return '';
+}
+
+/**
+ * Remove the filter's more information tips link
+ */
+function rubik_filter_tips_more_info () {
+  return '';
 }
