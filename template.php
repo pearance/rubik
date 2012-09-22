@@ -580,9 +580,12 @@ function replace_array_values_vertical_tabs_to_fieldsets(&$item, $key) {
   }
 }
 
-// Implements hook_form_alter
+/**
+ * Implement hook_form_alter
+ */
 function rubik_form_alter(&$form, &$form_state, $form_id) {
-  // Go through hole array using 'replace_array_values_vertical_tabs_to_fieldsets' function
+
+  // Set attributes globally on all node edit forms.
   if($form_id == 'faq_node_form' ||
      $form_id == 'block_node_form' ||
      $form_id == 'blog_node_form' ||
@@ -592,17 +595,70 @@ function rubik_form_alter(&$form, &$form_state, $form_id) {
      $form_id == 'testimonial_node_form' ||
      $form_id == 'webform_node_form'
     ) {
+    // Go through array using 'replace_array_values_vertical_tabs_to_fieldsets' function
     array_walk_recursive($form, 'replace_array_values_vertical_tabs_to_fieldsets');
-    $form['options']['#collapsed'] = FALSE;
+
+    // dsm($form);
+
+    $form['revision_information']['#title'] = 'Revision Information';
+    $form['contentanalysis']['#title'] = 'Content Analysis';
+    $form['author']['#title'] = 'Authoring Information';
+    $form['options']['#title'] = 'Publishing Options';
+    $form['metatags']['#title'] = 'Meta Tags';
+
+    $form['options']['#collapsed'] = TRUE;
+    $form['revision_information']['#weight'] = '-101';
     $form['options']['#weight'] = '-100';
     $form['rabbit_hole']['#collapsed'] = TRUE;
     $form['machine_name_fs']['#collapsible'] = TRUE;
     $form['machine_name_fs']['#collapsed'] = TRUE;
+    $form['path']['#collapsed'] = TRUE;
     // $form['metatags']['#collapsed'] = FALSE;
     // $form['field_files']['#collapsible'] = TRUE;
     // $form['field_files']['#collapsed'] = FALSE;
-    $form['path']['#collapsed'] = TRUE;
-    $form['revision_information']['#weight'] = '-100';
+  }
+
+    switch($form_id) {
+    case 'user-login':
+      $form['pass']['#attributes']['autocomplete'] = 'off';
+    break;
+
+    case 'faq_node_form':
+      $form['options']['#title'] = 'Revision Information';
+      $form['options']['#collapsed'] = FALSE;
+      unset($form['metatags']);
+    break;
+
+    case 'block_node_form':
+      unset($form['metatags']);
+    break;
+
+    case 'blog_node_form':
+      $form['options']['#title'] = 'Revision Information';
+      $form['options']['#collapsed'] = FALSE;
+    break;
+
+    case 'featured_node_form':
+      $form['options']['#collapsed'] = TRUE;
+      unset($form['metatags']);
+    break;
+
+    case 'page_node_form':
+      $form['options']['#collapsed'] = TRUE;
+      $form['menu']['#title'] = 'Menu Options';
+      unset($form['metatags']);
+    break;
+
+    case 'specialty_node_form':
+      $form['options']['#title'] = 'Revision Information';
+      $form['options']['#collapsed'] = FALSE;
+    break;
+
+    case 'testimonial_node_form':
+      $form['options']['#title'] = 'Revision Information';
+      $form['options']['#collapsed'] = FALSE;
+      unset($form['metatags']);
+    break;
   }
 }
 
@@ -621,3 +677,4 @@ function rubik_filter_tips($tips, $long = FALSE, $extra = '') {
 function rubik_filter_tips_more_info () {
   return '';
 }
+
