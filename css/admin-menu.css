@@ -1,0 +1,22 @@
+/* Admin Menu Overrides  */
+#admin-menu .dropdown .admin-menu-action > a strong {
+  color: #ffd456;
+  font-size: 105%;
+  font-style: italic;
+}
+
+.role-professional #admin-menu .dropdown li li,
+.role-assistant #admin-menu .dropdown li li {
+  width: 180px;
+}
+
+.role-professional #admin-menu .shortcut-toggle,
+.role-assistant #admin-menu .shortcut-toggle {
+  display: none !important;
+}
+
+/* Shortcut Overrides  */
+.role-professional #admin-menu .shortcut-toggle,
+.role-assistant #admin-menu .shortcut-toggle {
+  display: none !important;
+}
