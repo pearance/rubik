@@ -626,11 +626,9 @@ function rubik_form_alter(&$form, &$form_state, $form_id) {
     case 'faq_node_form':
       $form['options']['#title'] = 'Revision Information';
       $form['options']['#collapsed'] = FALSE;
-      unset($form['metatags']);
     break;
 
     case 'block_node_form':
-      unset($form['metatags']);
     break;
 
     case 'blog_node_form':
@@ -640,13 +638,11 @@ function rubik_form_alter(&$form, &$form_state, $form_id) {
 
     case 'featured_node_form':
       $form['options']['#collapsed'] = TRUE;
-      unset($form['metatags']);
     break;
 
     case 'page_node_form':
       $form['options']['#collapsed'] = TRUE;
       $form['menu']['#title'] = 'Menu Options';
-      unset($form['metatags']);
     break;
 
     case 'specialty_node_form':
@@ -657,7 +653,6 @@ function rubik_form_alter(&$form, &$form_state, $form_id) {
     case 'testimonial_node_form':
       $form['options']['#title'] = 'Revision Information';
       $form['options']['#collapsed'] = FALSE;
-      unset($form['metatags']);
     break;
   }
 }
