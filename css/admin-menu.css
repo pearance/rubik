@@ -17,6 +17,10 @@
 
 /* Shortcut Overrides  */
 .role-professional #admin-menu .shortcut-toggle,
-.role-assistant #admin-menu .shortcut-toggle {
-  display: none !important;
-}
+.role-assistant #admin-menu .shortcut-toggle,
+.role-authenticated-user #admin-menu .shortcut-toggle {display: none !important;}
+
+.role-developer #admin-menu .shortcut-toggle,
+.role-support #admin-menu .shortcut-toggle {display: block !important;}
+
+.role-authenticated-user #edit-timezone {display: none;}
