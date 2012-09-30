@@ -572,7 +572,11 @@ function _rubik_local_tasks(&$vars) {
 }
 
 
-// Disable vertical tabs
+/**
+ * Pearance Addendum
+ */
+
+// Disable vertical tabs for node edit forms.
 function replace_array_values_vertical_tabs_to_fieldsets(&$item, $key) {
   // Search for 'vertical_tabs' values with key '#type' and replace to 'fieldset'
   if ($item == 'vertical_tabs' && $key == '#type') {
@@ -599,12 +603,6 @@ function rubik_form_alter(&$form, &$form_state, $form_id) {
     array_walk_recursive($form, 'replace_array_values_vertical_tabs_to_fieldsets');
 
     // dsm($form);
-
-    $form['revision_information']['#title'] = 'Revision Information';
-    $form['contentanalysis']['#title'] = 'Content Analysis';
-    $form['author']['#title'] = 'Authoring Information';
-    $form['options']['#title'] = 'Publishing Options';
-    $form['metatags']['#title'] = 'Meta Tags';
 
     $form['options']['#weight'] = '-100';
     $form['revision_information']['#weight'] = '-101';
@@ -637,10 +635,6 @@ function rubik_form_alter(&$form, &$form_state, $form_id) {
     }
   }
 
-
-
-
-
   // Local form overrides.
   switch($form_id) {
   case 'user-login':
@@ -648,7 +642,6 @@ function rubik_form_alter(&$form, &$form_state, $form_id) {
     break;
 
   case 'faq_node_form':
-    $form['options']['#title'] = 'Revision Information';
     $form['options']['#collapsed'] = FALSE;
     break;
 
@@ -656,7 +649,6 @@ function rubik_form_alter(&$form, &$form_state, $form_id) {
     break;
 
   case 'blog_node_form':
-    $form['options']['#title'] = 'Editorial Information';
     $form['options']['#collapsed'] = FALSE;
     break;
 
@@ -666,16 +658,13 @@ function rubik_form_alter(&$form, &$form_state, $form_id) {
 
   case 'page_node_form':
     $form['options']['#collapsed'] = TRUE;
-    $form['menu']['#title'] = 'Menu Options';
     break;
 
   case 'specialty_node_form':
-    $form['options']['#title'] = 'Revision Information';
     $form['options']['#collapsed'] = FALSE;
     break;
 
   case 'testimonial_node_form':
-    $form['options']['#title'] = 'Revision Information';
     $form['options']['#collapsed'] = FALSE;
     break;
   }
