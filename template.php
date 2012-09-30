@@ -585,16 +585,16 @@ function replace_array_values_vertical_tabs_to_fieldsets(&$item, $key) {
  */
 function rubik_form_alter(&$form, &$form_state, $form_id) {
 
-  // Set attributes globally on all node edit forms.
+  // Global form overrides.
   if($form_id == 'faq_node_form' ||
-     $form_id == 'block_node_form' ||
-     $form_id == 'blog_node_form' ||
-     $form_id == 'featured_node_form' ||
-     $form_id == 'page_node_form' ||
-     $form_id == 'specialty_node_form' ||
-     $form_id == 'testimonial_node_form' ||
-     $form_id == 'webform_node_form'
-    ) {
+    $form_id == 'block_node_form' ||
+    $form_id == 'blog_node_form' ||
+    $form_id == 'featured_node_form' ||
+    $form_id == 'page_node_form' ||
+    $form_id == 'specialty_node_form' ||
+    $form_id == 'testimonial_node_form' ||
+    $form_id == 'webform_node_form'
+  ) {
     // Go through array using 'replace_array_values_vertical_tabs_to_fieldsets' function
     array_walk_recursive($form, 'replace_array_values_vertical_tabs_to_fieldsets');
 
@@ -606,9 +606,10 @@ function rubik_form_alter(&$form, &$form_state, $form_id) {
     $form['options']['#title'] = 'Publishing Options';
     $form['metatags']['#title'] = 'Meta Tags';
 
-    $form['options']['#collapsed'] = TRUE;
-    $form['revision_information']['#weight'] = '-101';
     $form['options']['#weight'] = '-100';
+    $form['revision_information']['#weight'] = '-101';
+
+    $form['options']['#collapsed'] = TRUE;
     $form['rabbit_hole']['#collapsed'] = TRUE;
     $form['machine_name_fs']['#collapsible'] = TRUE;
     $form['machine_name_fs']['#collapsed'] = TRUE;
@@ -616,43 +617,66 @@ function rubik_form_alter(&$form, &$form_state, $form_id) {
     // $form['metatags']['#collapsed'] = FALSE;
     // $form['field_files']['#collapsible'] = TRUE;
     // $form['field_files']['#collapsed'] = FALSE;
+
+    // Order of form buttons.
+    $form['actions']['preview']['#weight'] = '3';
+    $form['actions']['delete']['#weight'] = '7';
+
+    $draft_value = $form['actions']['draft']['#value'];
+
+    switch($draft_value) {
+    case 'Unpublish':
+      $form['actions']['submit']['#weight'] = '0';
+      $form['actions']['draft']['#weight'] = '10';
+      break;
+
+    case 'Save':
+      $form['actions']['submit']['#weight'] = '10';
+      $form['actions']['draft']['#weight'] = '0';
+      break;
+    }
   }
 
-    switch($form_id) {
-    case 'user-login':
-      $form['pass']['#attributes']['autocomplete'] = 'off';
+
+
+
+
+  // Local form overrides.
+  switch($form_id) {
+  case 'user-login':
+    $form['pass']['#attributes']['autocomplete'] = 'off';
     break;
 
-    case 'faq_node_form':
-      $form['options']['#title'] = 'Revision Information';
-      $form['options']['#collapsed'] = FALSE;
+  case 'faq_node_form':
+    $form['options']['#title'] = 'Revision Information';
+    $form['options']['#collapsed'] = FALSE;
     break;
 
-    case 'block_node_form':
+  case 'block_node_form':
     break;
 
-    case 'blog_node_form':
-      $form['options']['#title'] = 'Revision Information';
-      $form['options']['#collapsed'] = FALSE;
+  case 'blog_node_form':
+    $form['options']['#title'] = 'Revision Information';
+    $form['options']['#collapsed'] = FALSE;
     break;
 
-    case 'featured_node_form':
-      $form['options']['#collapsed'] = TRUE;
+  case 'featured_node_form':
+    $form['options']['#collapsed'] = TRUE;
     break;
 
-    case 'page_node_form':
-      $form['options']['#collapsed'] = TRUE;
-      $form['menu']['#title'] = 'Menu Options';
+  case 'page_node_form':
+    $form['options']['#collapsed'] = TRUE;
+    $form['menu']['#title'] = 'Menu Options';
     break;
 
-    case 'specialty_node_form':
-      $form['options']['#title'] = 'Revision Information';
-      $form['options']['#collapsed'] = FALSE;
+  case 'specialty_node_form':
+    $form['options']['#title'] = 'Revision Information';
+    $form['options']['#collapsed'] = FALSE;
     break;
 
-    case 'testimonial_node_form':
-      $form['options']['#title'] = 'Revision Information';
-      $form['options']['#collapsed'] = FALSE;
+  case 'testimonial_node_form':
+    $form['options']['#title'] = 'Revision Information';
+    $form['options']['#collapsed'] = FALSE;
     break;
   }
 }
