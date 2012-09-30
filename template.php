@@ -656,7 +656,7 @@ function rubik_form_alter(&$form, &$form_state, $form_id) {
     break;
 
   case 'blog_node_form':
-    $form['options']['#title'] = 'Revision Information';
+    $form['options']['#title'] = 'Editorial Information';
     $form['options']['#collapsed'] = FALSE;
     break;
 
