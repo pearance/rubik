@@ -603,18 +603,14 @@ function rubik_form_alter(&$form, &$form_state, $form_id) {
     array_walk_recursive($form, 'replace_array_values_vertical_tabs_to_fieldsets');
 
     // dsm($form);
-
-    $form['options']['#weight'] = '-100';
-    $form['revision_information']['#weight'] = '-101';
+    $form['options']['#weight'] = '-50';
+    $form['revision_information']['#weight'] = '-60 ';
 
     $form['options']['#collapsed'] = TRUE;
     $form['rabbit_hole']['#collapsed'] = TRUE;
     $form['machine_name_fs']['#collapsible'] = TRUE;
     $form['machine_name_fs']['#collapsed'] = TRUE;
     $form['path']['#collapsed'] = TRUE;
-    // $form['metatags']['#collapsed'] = FALSE;
-    // $form['field_files']['#collapsible'] = TRUE;
-    // $form['field_files']['#collapsed'] = FALSE;
 
     // Order of form buttons.
     $form['actions']['preview']['#weight'] = '3';
@@ -666,6 +662,24 @@ function rubik_form_alter(&$form, &$form_state, $form_id) {
 
   case 'testimonial_node_form':
     $form['options']['#collapsed'] = FALSE;
+    break;
+
+  case 'system_theme_settings':
+    $form['theme_settings']['#collapsible'] = TRUE;
+    $form['theme_settings']['#collapsed'] = TRUE;
+    $form['logo']['#collapsible'] = TRUE;
+    $form['logo']['#collapsed'] = TRUE;
+    $form['favicon']['#collapsible'] = TRUE;
+    $form['favicon']['#collapsed'] = TRUE;
+    $form['alpha_settings']['structure']['header']['#collapsible'] = TRUE;
+    $form['alpha_settings']['structure']['header']['#collapsed'] = TRUE;
+    $form['alpha_settings']['structure']['content']['#collapsible'] = TRUE;
+    $form['alpha_settings']['structure']['content']['#collapsed'] = TRUE;
+    $form['alpha_settings']['structure']['footer']['#collapsible'] = TRUE;
+    $form['alpha_settings']['structure']['footer']['#collapsed'] = TRUE;
+    $form['alpha_settings']['structure']['__unassigned__']['#collapsible'] = TRUE;
+    $form['alpha_settings']['structure']['__unassigned__']['#collapsed'] = TRUE;
+    // dsm($form);
     break;
   }
 }
