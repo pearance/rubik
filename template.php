@@ -665,12 +665,20 @@ function rubik_form_alter(&$form, &$form_state, $form_id) {
     break;
 
   case 'system_theme_settings':
+    // dsm($form);
     $form['theme_settings']['#collapsible'] = TRUE;
     $form['theme_settings']['#collapsed'] = TRUE;
     $form['logo']['#collapsible'] = TRUE;
     $form['logo']['#collapsed'] = TRUE;
     $form['favicon']['#collapsible'] = TRUE;
     $form['favicon']['#collapsed'] = TRUE;
+    $form['alpha_settings']['layout']['#weight'] = '-7';
+    $form['alpha_settings']['layout']['responsive_settings']['#collapsible'] = TRUE;
+    $form['alpha_settings']['layout']['responsive_settings']['#collapsed'] = TRUE;
+    $form['alpha_settings']['layout']['responsive_settings']['viewport_settings']['#collapsible'] = TRUE;
+    $form['alpha_settings']['layout']['responsive_settings']['viewport_settings']['#collapsed'] = TRUE;
+    $form['alpha_settings']['layout']['grid_layouts']['alpha_default']['#collapsible'] = TRUE;
+    $form['alpha_settings']['layout']['grid_layouts']['alpha_default']['#collapsed'] = TRUE;
     $form['alpha_settings']['structure']['header']['#collapsible'] = TRUE;
     $form['alpha_settings']['structure']['header']['#collapsed'] = TRUE;
     $form['alpha_settings']['structure']['content']['#collapsible'] = TRUE;
@@ -679,7 +687,6 @@ function rubik_form_alter(&$form, &$form_state, $form_id) {
     $form['alpha_settings']['structure']['footer']['#collapsed'] = TRUE;
     $form['alpha_settings']['structure']['__unassigned__']['#collapsible'] = TRUE;
     $form['alpha_settings']['structure']['__unassigned__']['#collapsed'] = TRUE;
-    // dsm($form);
     break;
   }
 }
