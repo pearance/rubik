@@ -554,7 +554,7 @@ form .form-actions {
 
   form .form-actions input.form-submit { margin-right:5px; }
 
-  .form-layout-default .column-main .form-actions { display:none; }
+  .form-layout-default .column-main .form-actions { display: block; }
   .form-layout-default .column-side .form-actions { margin:0px 0px 10px; }
   .form-layout-default .column-side .form-actions input.form-submit { margin:1px 5px 1px 0px; }
 
