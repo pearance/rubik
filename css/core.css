@@ -889,3 +889,17 @@ input.form-autocomplete, input.form-text, textarea.form-textarea, select.form-se
 .block, .item-list, .help-items ul, .form-item, .confirmation ul, .admin-list, .node-type-list, .admin-panel {
   border: none;
 }
+
+
+
+/* Hide edit link from support role in content type Manage Display pages. */
+.role-support ul.primary-tabs li a[href="/admin/structure/types/manage/faq"],
+.role-support ul.primary-tabs li a[href="/admin/structure/types/manage/block"],
+.role-support ul.primary-tabs li a[href="/admin/structure/types/manage/blog"],
+.role-support ul.primary-tabs li a[href="/admin/structure/types/manage/featured"],
+.role-support ul.primary-tabs li a[href="/admin/structure/types/manage/page"],
+.role-support ul.primary-tabs li a[href="/admin/structure/types/manage/specialty"],
+.role-support ul.primary-tabs li a[href="/admin/structure/types/manage/testimonial"],
+.role-support ul.primary-tabs li a[href="/admin/structure/types/manage/webform"] {
+	display: none;
+}

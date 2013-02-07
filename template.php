@@ -642,6 +642,11 @@ function rubik_form_alter(&$form, &$form_state, $form_id) {
     break;
 
   case 'block_node_form':
+  	$form['field_map_address']['#type'] = 'fieldset';
+  	$form['field_map_address']['#group'] = 'additional_settings';
+  	$form['field_map_address']['#title'] = 'Google Map';
+  	$form['field_map_address']['#collapsible'] = TRUE;
+  	$form['field_map_address']['#collapsed'] = TRUE;
     break;
 
   case 'blog_node_form':
