@@ -1,5 +1,13 @@
-@import url('admin-menu.css');
+/*
+             _     _ _
+  _ __ _   _| |__ (_) | __      ___ ___  _ __ ___
+ | '__| | | | '_ \| | |/ /____ / __/ _ \| '__/ _ \
+ | |  | |_| | |_) | |   <_____| (_| (_) | | |  __/
+ |_|   \__,_|_.__/|_|_|\_\     \___\___/|_|  \___|
 
+*/
+
+@import url('admin-menu.css');
 
 p:last-child { margin:0px; }
 
@@ -902,4 +910,9 @@ input.form-autocomplete, input.form-text, textarea.form-textarea, select.form-se
 .role-support ul.primary-tabs li a[href="/admin/structure/types/manage/testimonial"],
 .role-support ul.primary-tabs li a[href="/admin/structure/types/manage/webform"] {
 	display: none;
+}
+
+/* Fix compact-form styles on the testimonial add page in admin context */
+.page-node-add-testimonial.logged-in .compact-form-label {
+	position: relative;
 }
