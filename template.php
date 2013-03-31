@@ -662,11 +662,11 @@ function rubik_form_alter(&$form, &$form_state, $form_id) {
 		break;
 
 	case 'specialty_node_form':
-		$form['options']['#collapsed'] = FALSE;
+		$form['options']['#collapsed'] = TRUE;
 		break;
 
 	case 'testimonial_node_form':
-		$form['options']['#collapsed'] = FALSE;
+		$form['options']['#collapsed'] = TRUE;
 		break;
 
 	case 'system_theme_settings':
