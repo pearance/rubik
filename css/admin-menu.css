@@ -23,4 +23,3 @@
 .role-developer #admin-menu .shortcut-toggle,
 .role-support #admin-menu .shortcut-toggle {display: block !important;}
 
-.role-authenticated-user #edit-timezone {display: none;}
